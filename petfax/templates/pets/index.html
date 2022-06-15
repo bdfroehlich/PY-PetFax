@@ -5,22 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetFax</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <H1>Welcome to PetFax</H1>
-    {% for pet in pets %}
-        <H2>{{ pet.pet_name }}</H2>
-        <img src="{{ pet.pet_photo }}"/>
-        <br>
-        <!-- %s is a string formatting syntax for string concatenation and %s is replaced by whatever comes after the following % -->
-        <a href="{{'/pets/%s'%pet.pet_id}}">Learn more about {{pet.pet_name}}</a>
-        <!-- from the solution branch -->
-        <!-- <a href="/pets/{{ pet.pet_id }}">Learn more ⟩</a> -->
-    {% endfor %}
-    <div>
-        <H4>Feel free to provide more PetFax</H4>
-        <a href="{{''}}">Submit your fact here!</a>
+    <div class="container">
+        <H1>Welcome to PetFax</H1>
+        <div class="pcontainer">
+        {% for pet in pets %}
+            <div class="pet">
+                <H2>{{ pet.pet_name }}</H2>
+                <img src="{{ pet.pet_photo }}"/>
+                <br>
+                <!-- %s is a string formatting syntax for string concatenation and %s is replaced by whatever comes after the following % -->
+                <a href="{{'/pets/%s'%pet.pet_id}}">Learn more about {{pet.pet_name}}</a>
+                <!-- from the solution branch -->
+                <!-- <a href="/pets/{{ pet.pet_id }}">Learn more ⟩</a> -->
+            </div>
+        {% endfor %}
+        </div>
+        <div>
+            <a href="{{'/facts/new'}}">Submit a new interesting fact here!</a>
+        </div>
     </div>
-    
 </body>
 </html>
