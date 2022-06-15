@@ -7,10 +7,11 @@
     <title>PetFax</title>
 </head>
 <body>
-    <H1>Welcome to PetFax</H1>
-    {% for pet in pets %}
-        <H2>{{ pet.pet_name }}</H2>
+    <H1>{{pet.pet_name}}</H1>
+        <H2>Did you know?</H2>
+        <H3>{{pet.pet_fact}}</H3>
         <img src="{{ pet.pet_photo }}"/>
-    {% endfor %}
+        <br>
+        <a href="/pets/">Go back.</a>
 </body>
 </html>
