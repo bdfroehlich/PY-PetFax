@@ -14,6 +14,7 @@ def index():
         submitter = request.form['submitter']
         fact = request.form['fact']
 
+        #create new instance of fact model using submitter and fact as arguments
         new_fact = models.Fact(submitter=submitter,fact=fact)
         #add new_fact to database session
         models.db.session.add(new_fact)
